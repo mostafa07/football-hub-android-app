@@ -1,7 +1,8 @@
-package com.swhe.footballhub
+package com.swhe.footballhub.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.swhe.footballhub.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
