@@ -1,10 +1,11 @@
-package com.swhe.footballhub.ui
+package com.mx3.footballhub.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.swhe.footballhub.R
+import androidx.appcompat.app.AppCompatActivity
+import com.mx3.footballhub.R
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

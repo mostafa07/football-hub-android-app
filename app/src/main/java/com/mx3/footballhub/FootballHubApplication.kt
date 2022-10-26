@@ -1,4 +1,4 @@
-package com.swhe.footballhub
+package com.mx3.footballhub
 
 import android.app.Application
 import timber.log.Timber

@@ -1,4 +1,4 @@
-package com.swhe.footballhub
+package com.mx3.footballhub
 
 import org.junit.Test
 

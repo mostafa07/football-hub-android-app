@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="competition"
+            type="com.mx3.footballhub.data.model.domain.Competition" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/competition_emblem_image_view"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:adjustViewBounds="false"
+                android:contentDescription="@{competition.name}"
+                android:cropToPadding="false"
+                android:scaleType="centerCrop"
+                app:imageResource="@{competition.emblemUrl}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="h,4:3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize8dp"
+                tools:src="@drawable/football" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/competition_name_and_code_text_view"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@{competition.name + ` ` + competition.code}"
+                app:layout_constraintBottom_toTopOf="@id/competition_current_season_start_date_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/competition_emblem_image_view"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="Competition Name + Code" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/competition_current_season_start_date_text_view"
+                style="@style/TextAppearance.MaterialComponents.Body2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@{competition.currentSeasonStartDate + ` to ` + competition.currentSeasonEndDate}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/competition_emblem_image_view"
+                app:layout_constraintTop_toBottomOf="@id/competition_name_and_code_text_view"
+                tools:text="2021-08-13 to 2021-08-13" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
