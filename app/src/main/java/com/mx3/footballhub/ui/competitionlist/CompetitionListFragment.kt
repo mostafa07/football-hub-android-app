@@ -15,7 +15,9 @@ import com.mx3.footballhub.ui.util.showSnackbar
 class CompetitionListFragment : Fragment() {
 
     private lateinit var binding: FragmentCompetitionListBinding
-    private val competitionListViewModel by viewModels<CompetitionListViewModel>()
+    private val competitionListViewModel: CompetitionListViewModel by viewModels {
+        CompetitionListViewModel.Factory
+    }
 
     private lateinit var competitionAdapter: CompetitionAdapter
 

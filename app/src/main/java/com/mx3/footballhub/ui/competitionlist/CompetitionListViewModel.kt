@@ -1,7 +1,13 @@
 package com.mx3.footballhub.ui.competitionlist
 
-import android.app.Application
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
+import androidx.lifecycle.viewmodel.initializer
+import androidx.lifecycle.viewmodel.viewModelFactory
+import com.mx3.footballhub.FootballHubApplication
 import com.mx3.footballhub.R
 import com.mx3.footballhub.data.model.app.CustomMessage
 import com.mx3.footballhub.data.model.domain.Competition
@@ -12,14 +18,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 
-class CompetitionListViewModel(application: Application) : AndroidViewModel(application) {
-
-    private val competitionsRepository = CompetitionRepository(application)
+class CompetitionListViewModel(competitionRepository: CompetitionRepository) : ViewModel() {
 
     private val viewModelJob = SupervisorJob()
     private val viewModelScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
-    private val _competitions = competitionsRepository.competitions
+    private val _competitions = competitionRepository.competitions
     val competitions: LiveData<List<Competition>>
         get() = _competitions
 
@@ -39,7 +43,7 @@ class CompetitionListViewModel(application: Application) : AndroidViewModel(appl
     init {
         viewModelScope.launch {
             showLoading()
-            competitionsRepository.getAllCompetitions()
+            competitionRepository.getAllCompetitions()
             hideLoading()
         }
     }
@@ -76,14 +80,14 @@ class CompetitionListViewModel(application: Application) : AndroidViewModel(appl
     }
 
 
-    class Factory(private val application: Application) : ViewModelProvider.Factory {
+    companion object {
 
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(CompetitionListViewModel::class.java)) {
-                @Suppress("UNCHECKED_CAST")
-                return CompetitionListViewModel(application) as T
+        val Factory: ViewModelProvider.Factory = viewModelFactory {
+            initializer {
+                val competitionRepository =
+                    (this[APPLICATION_KEY] as FootballHubApplication).competitionRepository
+                CompetitionListViewModel(competitionRepository = competitionRepository)
             }
-            throw IllegalArgumentException("Unable to construct viewmodel")
         }
     }
 }
