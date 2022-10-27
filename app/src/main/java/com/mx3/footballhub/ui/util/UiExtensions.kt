@@ -6,7 +6,7 @@ import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
-import com.mx3.footballhub.data.model.app.CustomMessage
+import com.mx3.footballhub.ui.common.CustomMessage
 
 fun Activity.showSnackbar(rootView: View, message: CustomMessage, successFlag: Boolean) {
     val messageString = getString(message.messageResourceId, message.params)

@@ -2,7 +2,7 @@ package com.mx3.footballhub.ui.adapter
 
 import com.mx3.footballhub.BR
 import com.mx3.footballhub.R
-import com.mx3.footballhub.data.model.domain.Competition
+import com.mx3.footballhub.data.model.Competition
 import com.mx3.footballhub.databinding.ItemCompetitionBinding
 import com.mx3.footballhub.ui.adapter.base.BaseRecyclerViewAdapter
 

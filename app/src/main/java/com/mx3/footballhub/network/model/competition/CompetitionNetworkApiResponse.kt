@@ -1,7 +1,7 @@
-package com.mx3.footballhub.data.model.source.remote.competition
+package com.mx3.footballhub.network.model.competition
 
-import com.mx3.footballhub.data.model.domain.Competition
-import com.mx3.footballhub.data.model.source.local.CompetitionEntity
+import com.mx3.footballhub.data.database.model.CompetitionEntity
+import com.mx3.footballhub.data.model.Competition
 
 data class CompetitionNetworkApiResponse(
     val competitions: List<CompetitionNetworkModel>,

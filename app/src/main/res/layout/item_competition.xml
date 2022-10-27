@@ -7,7 +7,7 @@
 
         <variable
             name="competition"
-            type="com.mx3.footballhub.data.model.domain.Competition" />
+            type="com.mx3.footballhub.data.model.Competition" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

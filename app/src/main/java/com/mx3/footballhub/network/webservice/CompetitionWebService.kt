@@ -1,6 +1,6 @@
-package com.mx3.footballhub.webservice
+package com.mx3.footballhub.network.webservice
 
-import com.mx3.footballhub.data.model.source.remote.competition.CompetitionNetworkApiResponse
+import com.mx3.footballhub.network.model.competition.CompetitionNetworkApiResponse
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 

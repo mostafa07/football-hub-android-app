@@ -3,11 +3,11 @@ package com.mx3.footballhub.data.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.mx3.footballhub.data.database.dao.CompetitionDao
-import com.mx3.footballhub.data.model.domain.Competition
-import com.mx3.footballhub.data.model.source.local.toDomainModel
-import com.mx3.footballhub.data.model.source.remote.competition.toDatabaseModel
-import com.mx3.footballhub.webservice.CompetitionWebService
-import com.mx3.footballhub.webservice.builder.RetrofitServiceBuilder
+import com.mx3.footballhub.data.database.model.toDomainModel
+import com.mx3.footballhub.data.model.Competition
+import com.mx3.footballhub.network.model.competition.toDatabaseModel
+import com.mx3.footballhub.network.webservice.CompetitionWebService
+import com.mx3.footballhub.network.webservice.builder.RetrofitServiceBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

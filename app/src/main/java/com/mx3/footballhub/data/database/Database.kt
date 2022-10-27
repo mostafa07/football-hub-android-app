@@ -5,7 +5,7 @@ import androidx.room.*
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.mx3.footballhub.data.database.dao.CompetitionDao
-import com.mx3.footballhub.data.model.source.local.CompetitionEntity
+import com.mx3.footballhub.data.database.model.CompetitionEntity
 
 @Database(entities = [CompetitionEntity::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)

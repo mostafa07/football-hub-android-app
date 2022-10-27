@@ -1,4 +1,4 @@
-package com.mx3.footballhub.data.model.domain
+package com.mx3.footballhub.data.model
 
 data class Competition(
     val id: Int,

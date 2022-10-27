@@ -1,4 +1,4 @@
-package com.mx3.footballhub.webservice.builder
+package com.mx3.footballhub.network.webservice.builder
 
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory

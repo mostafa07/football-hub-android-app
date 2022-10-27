@@ -9,14 +9,15 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.mx3.footballhub.FootballHubApplication
 import com.mx3.footballhub.R
-import com.mx3.footballhub.data.model.app.CustomMessage
-import com.mx3.footballhub.data.model.domain.Competition
+import com.mx3.footballhub.ui.common.CustomMessage
+import com.mx3.footballhub.data.model.Competition
 import com.mx3.footballhub.data.repository.CompetitionRepository
 import com.mx3.footballhub.exception.BusinessException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class CompetitionListViewModel(competitionRepository: CompetitionRepository) : ViewModel() {
 
@@ -43,7 +44,11 @@ class CompetitionListViewModel(competitionRepository: CompetitionRepository) : V
     init {
         viewModelScope.launch {
             showLoading()
-            competitionRepository.getAllCompetitions()
+            try {
+                competitionRepository.getAllCompetitions()
+            } catch (exception: Exception) {
+                Timber.e(exception)
+            }
             hideLoading()
         }
     }

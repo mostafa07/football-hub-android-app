@@ -1,8 +1,8 @@
-package com.mx3.footballhub.data.model.source.local
+package com.mx3.footballhub.data.database.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.mx3.footballhub.data.model.domain.Competition
+import com.mx3.footballhub.data.model.Competition
 
 @Entity(tableName = "competition")
 data class CompetitionEntity(
