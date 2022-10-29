@@ -4,4 +4,7 @@
     <string name="operation_failed">Operation Failed</string>
 
     <string name="competitions_list_not_available">Competitions list not available at the moment. Please try again later.</string>
+
+    <string name="tab_label_teams">Teams</string>
+    <string name="tab_label_seasons">Seasons</string>
 </resources>

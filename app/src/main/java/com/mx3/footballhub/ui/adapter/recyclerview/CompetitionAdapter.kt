@@ -1,10 +1,10 @@
-package com.mx3.footballhub.ui.adapter
+package com.mx3.footballhub.ui.adapter.recyclerview
 
 import com.mx3.footballhub.BR
 import com.mx3.footballhub.R
 import com.mx3.footballhub.data.model.Competition
 import com.mx3.footballhub.databinding.ItemCompetitionBinding
-import com.mx3.footballhub.ui.adapter.base.BaseRecyclerViewAdapter
+import com.mx3.footballhub.ui.adapter.recyclerview.base.BaseRecyclerViewAdapter
 
 class CompetitionAdapter(onItemClickListener: OnItemClickListener<Competition>) :
     BaseRecyclerViewAdapter<Competition, ItemCompetitionBinding>(onItemClickListener) {

@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.mx3.footballhub.databinding.FragmentCompetitionListBinding
-import com.mx3.footballhub.ui.adapter.CompetitionAdapter
+import com.mx3.footballhub.ui.adapter.recyclerview.CompetitionAdapter
 import com.mx3.footballhub.ui.util.disableUserInteraction
 import com.mx3.footballhub.ui.util.reEnableUserInteraction
 import com.mx3.footballhub.ui.util.showSnackbar
@@ -32,7 +33,11 @@ class CompetitionListFragment : Fragment() {
         binding.viewModel = competitionListViewModel
 
         competitionAdapter = CompetitionAdapter { competition, _ ->
-            // TODO
+            val action =
+                CompetitionListFragmentDirections.actionFragmentCompetitionListToCompetitionDetailFragment(
+                    competitionId = competition.id
+                )
+            findNavController().navigate(action)
         }
         binding.competitionRecyclerView.adapter = competitionAdapter
 
@@ -57,10 +62,9 @@ class CompetitionListFragment : Fragment() {
         competitionListViewModel.isContentLoading.observe(viewLifecycleOwner) { isLoading ->
             binding.shimmerLayout.shimmerFrameLayout.showShimmer(isLoading)
 
-            if (isLoading) {
-                disableUserInteraction()
-            } else {
-                reEnableUserInteraction()
+            when {
+                isLoading -> disableUserInteraction()
+                else -> reEnableUserInteraction()
             }
         }
 

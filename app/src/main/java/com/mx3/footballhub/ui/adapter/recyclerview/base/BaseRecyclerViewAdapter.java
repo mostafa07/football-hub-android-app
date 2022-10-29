@@ -1,4 +1,4 @@
-package com.mx3.footballhub.ui.adapter.base;
+package com.mx3.footballhub.ui.adapter.recyclerview.base;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;

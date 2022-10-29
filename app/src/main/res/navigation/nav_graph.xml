@@ -9,5 +9,22 @@
         android:id="@+id/fragment_competition_list"
         android:name="com.mx3.footballhub.ui.competitionlist.CompetitionListFragment"
         android:label="CompetitionListFragment"
-        tools:layout="@layout/fragment_competition_list" />
+        tools:layout="@layout/fragment_competition_list">
+
+        <action
+            android:id="@+id/action_fragment_competition_list_to_competitionDetailFragment"
+            app:destination="@id/fragment_competition_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_competition_detail"
+        android:name="com.mx3.footballhub.ui.competitiondetail.CompetitionDetailFragment"
+        android:label="CompetitionDetailFragment"
+        tools:layout="@layout/fragment_competition_detail">
+
+        <argument
+            android:name="competitionId"
+            app:argType="integer" />
+    </fragment>
+
 </navigation>
