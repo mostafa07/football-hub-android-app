@@ -32,14 +32,7 @@ class CompetitionListFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = competitionListViewModel
 
-        competitionAdapter = CompetitionAdapter { competition, _ ->
-            val action =
-                CompetitionListFragmentDirections.actionFragmentCompetitionListToCompetitionDetailFragment(
-                    competitionId = competition.id
-                )
-            findNavController().navigate(action)
-        }
-        binding.competitionRecyclerView.adapter = competitionAdapter
+        setupRecyclerView()
 
         return binding.root
     }
@@ -50,6 +43,19 @@ class CompetitionListFragment : Fragment() {
         setupViewModelObservations()
     }
 
+
+    private fun setupRecyclerView() {
+        competitionAdapter = CompetitionAdapter { competition, _ ->
+            competition.id.let {
+                val action =
+                    CompetitionListFragmentDirections.actionFragmentCompetitionListToCompetitionDetailFragment(
+                        competitionId = it
+                    )
+                findNavController().navigate(action)
+            }
+        }
+        binding.competitionRecyclerView.adapter = competitionAdapter
+    }
 
     private fun setupViewModelObservations() {
         competitionListViewModel.successMessage.observe(viewLifecycleOwner) {

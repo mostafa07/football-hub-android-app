@@ -11,6 +11,7 @@ import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.google.android.material.tabs.TabLayout
 import com.mx3.footballhub.databinding.FragmentCompetitionDetailBinding
 import com.mx3.footballhub.ui.adapter.viewpager.CompetitionDetailFragmentStateAdapter
+import com.mx3.footballhub.ui.util.showSnackbar
 
 class CompetitionDetailFragment : Fragment() {
 
@@ -30,9 +31,17 @@ class CompetitionDetailFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = competitionDetailViewModel
 
+        competitionDetailViewModel.setSelectedCompetitionId(arguments.competitionId)
+
         setupTabs()
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setupViewModelObservations()
     }
 
 
@@ -41,6 +50,7 @@ class CompetitionDetailFragment : Fragment() {
             requireActivity().supportFragmentManager, lifecycle
         )
         binding.viewPager.adapter = competitionDetailFragmentStateAdapter
+        binding.viewModel = competitionDetailViewModel
 
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
@@ -57,5 +67,14 @@ class CompetitionDetailFragment : Fragment() {
                 binding.tabLayout.selectTab(binding.tabLayout.getTabAt(position))
             }
         })
+    }
+
+    private fun setupViewModelObservations() {
+        competitionDetailViewModel.successMessage.observe(viewLifecycleOwner) {
+            showSnackbar(binding.root, it, true)
+        }
+        competitionDetailViewModel.errorMessage.observe(viewLifecycleOwner) {
+            showSnackbar(binding.root, it, false)
+        }
     }
 }

@@ -1,25 +1,21 @@
 package com.mx3.footballhub.ui.competitionlist
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.mx3.footballhub.FootballHubApplication
-import com.mx3.footballhub.R
-import com.mx3.footballhub.ui.common.CustomMessage
 import com.mx3.footballhub.data.model.Competition
 import com.mx3.footballhub.data.repository.CompetitionRepository
-import com.mx3.footballhub.exception.BusinessException
+import com.mx3.footballhub.ui.base.BaseViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class CompetitionListViewModel(competitionRepository: CompetitionRepository) : ViewModel() {
+class CompetitionListViewModel(competitionRepository: CompetitionRepository) : BaseViewModel() {
 
     private val viewModelJob = SupervisorJob()
     private val viewModelScope = CoroutineScope(viewModelJob + Dispatchers.Main)
@@ -27,18 +23,6 @@ class CompetitionListViewModel(competitionRepository: CompetitionRepository) : V
     private val _competitions = competitionRepository.competitions
     val competitions: LiveData<List<Competition>>
         get() = _competitions
-
-    private val _successMessage: MutableLiveData<CustomMessage> = MutableLiveData()
-    val successMessage: LiveData<CustomMessage>
-        get() = _successMessage
-
-    private val _errorMessage: MutableLiveData<CustomMessage> = MutableLiveData()
-    val errorMessage: LiveData<CustomMessage>
-        get() = _errorMessage
-
-    private val _isContentLoading: MutableLiveData<Boolean> = MutableLiveData()
-    val isContentLoading: LiveData<Boolean>
-        get() = _isContentLoading
 
 
     init {
@@ -56,32 +40,6 @@ class CompetitionListViewModel(competitionRepository: CompetitionRepository) : V
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()
-    }
-
-
-    private fun setSuccessMessage(message: CustomMessage) {
-        _successMessage.value = message
-    }
-
-    private fun setErrorMessage(errorMessage: CustomMessage) {
-        _errorMessage.value = errorMessage
-    }
-
-    private fun setErrorMessage(t: Throwable) {
-        if (t is BusinessException) {
-            setErrorMessage(t.businessMessage)
-        } else {
-            t.printStackTrace()
-            setErrorMessage(CustomMessage(R.string.operation_failed))
-        }
-    }
-
-    private fun showLoading() {
-        _isContentLoading.value = true
-    }
-
-    private fun hideLoading() {
-        _isContentLoading.value = false
     }
 
 

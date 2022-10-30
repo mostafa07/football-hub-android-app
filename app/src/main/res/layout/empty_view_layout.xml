@@ -6,14 +6,14 @@
 
         <variable
             name="viewModel"
-            type="com.mx3.footballhub.ui.competitionlist.CompetitionListViewModel" />
+            type="com.mx3.footballhub.ui.base.BaseViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"
-        app:shown="@{!viewModel.isContentLoading &amp;&amp; viewModel.competitions.empty}">
+        app:shown="@{!viewModel.isContentLoading}">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/empty_view_image_view"
@@ -24,7 +24,6 @@
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toTopOf="@id/empty_view_prompt_text_view"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
@@ -37,10 +36,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:text="@string/competitions_list_not_available"
+            android:text="@string/data_not_available"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/empty_view_image_view" />
 

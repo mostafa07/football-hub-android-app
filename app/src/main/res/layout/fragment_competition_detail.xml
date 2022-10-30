@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.mx3.footballhub.ui.competitiondetail.CompetitionDetailViewModel" />
+            type="com.mx3.footballhub.ui.base.BaseViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

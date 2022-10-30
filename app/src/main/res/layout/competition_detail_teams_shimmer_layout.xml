@@ -21,25 +21,25 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include layout="@layout/item_competition_shimmer_placeholder" />
+            <include layout="@layout/item_competition_team_shimmer_placeholder" />
 
-            <include layout="@layout/item_competition_shimmer_placeholder" />
+            <include layout="@layout/item_competition_team_shimmer_placeholder" />
 
-            <include layout="@layout/item_competition_shimmer_placeholder" />
+            <include layout="@layout/item_competition_team_shimmer_placeholder" />
 
-            <include layout="@layout/item_competition_shimmer_placeholder" />
+            <include layout="@layout/item_competition_team_shimmer_placeholder" />
 
-            <include layout="@layout/item_competition_shimmer_placeholder" />
+            <include layout="@layout/item_competition_team_shimmer_placeholder" />
 
-            <include layout="@layout/item_competition_shimmer_placeholder" />
+            <include layout="@layout/item_competition_team_shimmer_placeholder" />
 
-            <include layout="@layout/item_competition_shimmer_placeholder" />
+            <include layout="@layout/item_competition_team_shimmer_placeholder" />
 
-            <include layout="@layout/item_competition_shimmer_placeholder" />
+            <include layout="@layout/item_competition_team_shimmer_placeholder" />
 
-            <include layout="@layout/item_competition_shimmer_placeholder" />
+            <include layout="@layout/item_competition_team_shimmer_placeholder" />
 
-            <include layout="@layout/item_competition_shimmer_placeholder" />
+            <include layout="@layout/item_competition_team_shimmer_placeholder" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
