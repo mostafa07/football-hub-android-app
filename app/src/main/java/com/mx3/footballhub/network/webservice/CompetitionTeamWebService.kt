@@ -14,8 +14,8 @@ interface CompetitionTeamWebService {
 
     companion object {
 
-        private const val COMPETITION_TEAMS_ENDPOINT = "competitions/{competitionId}/teams"
-
         const val COMPETITION_ID_PATH_PARAM = "competitionId"
+
+        private const val COMPETITION_TEAMS_ENDPOINT = "competitions/{$COMPETITION_ID_PATH_PARAM}/teams"
     }
 }

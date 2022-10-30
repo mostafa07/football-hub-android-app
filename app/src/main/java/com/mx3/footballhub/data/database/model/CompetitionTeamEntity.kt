@@ -8,9 +8,9 @@ import com.mx3.footballhub.data.model.Team
 data class CompetitionTeamEntity(
     @PrimaryKey
     val id: Int,
+    val competitionId: Int,
     val name: String,
-    val crestUrl: String?,
-    val competitionId: Int
+    val crestUrl: String?
 )
 
 
@@ -18,9 +18,9 @@ fun List<CompetitionTeamEntity>.toDomainModel(): List<Team> {
     return map {
         Team(
             id = it.id,
+            competitionId = it.competitionId,
             name = it.name,
-            crestUrl = it?.crestUrl,
-            competitionId = it.competitionId
+            crestUrl = it?.crestUrl
         )
     }
 }

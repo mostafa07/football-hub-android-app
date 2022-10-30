@@ -2,7 +2,7 @@ package com.mx3.footballhub.network.model.competition
 
 import com.mx3.footballhub.data.database.model.CompetitionEntity
 
-data class CompetitionNetworkApiResponse(
+data class AllCompetitionsNetworkApiResponse(
     val competitions: List<Competition>,
     val count: Int,
     val filters: Filters
@@ -53,7 +53,7 @@ data class Winner(
 class Filters
 
 
-fun CompetitionNetworkApiResponse.toDomainModel(): List<com.mx3.footballhub.data.model.Competition> {
+fun AllCompetitionsNetworkApiResponse.toDomainModel(): List<com.mx3.footballhub.data.model.Competition> {
     return competitions.map {
         com.mx3.footballhub.data.model.Competition(
             id = it.id,
@@ -66,7 +66,7 @@ fun CompetitionNetworkApiResponse.toDomainModel(): List<com.mx3.footballhub.data
     }
 }
 
-fun CompetitionNetworkApiResponse.toDatabaseModel(): Array<CompetitionEntity> {
+fun AllCompetitionsNetworkApiResponse.toDatabaseModel(): Array<CompetitionEntity> {
     return competitions.map {
         CompetitionEntity(
             id = it.id,

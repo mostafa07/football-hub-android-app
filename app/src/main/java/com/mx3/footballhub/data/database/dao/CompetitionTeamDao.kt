@@ -14,7 +14,7 @@ interface CompetitionTeamDao {
     fun getAllCompetitionTeams(): LiveData<List<CompetitionTeamEntity>>
 
     @Query("SELECT * FROM competition_team WHERE competitionId = :competitionId")
-    fun getCompetitionTeamsByCompetitionId(competitionId: String): LiveData<List<CompetitionTeamEntity>>
+    fun getCompetitionTeamsByCompetitionId(competitionId: Int): LiveData<List<CompetitionTeamEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg competitionTeams: CompetitionTeamEntity)
