@@ -7,14 +7,13 @@ import com.mx3.footballhub.data.database.model.toDomainModel
 import com.mx3.footballhub.data.model.Competition
 import com.mx3.footballhub.network.model.competition.toDatabaseModel
 import com.mx3.footballhub.network.webservice.CompetitionWebService
-import com.mx3.footballhub.network.webservice.builder.RetrofitServiceBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class CompetitionRepository(private val competitionDao: CompetitionDao) {
-
-    private val competitionWebService =
-        RetrofitServiceBuilder.buildService(CompetitionWebService::class.java)
+class CompetitionRepository(
+    private val competitionDao: CompetitionDao,
+    private val competitionWebService: CompetitionWebService
+) {
 
     val competitions: LiveData<List<Competition>> =
         Transformations.map(competitionDao.getAllCompetitions()) { it.toDomainModel() }

@@ -5,13 +5,20 @@ import androidx.room.*
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.mx3.footballhub.data.database.dao.CompetitionDao
+import com.mx3.footballhub.data.database.dao.CompetitionTeamDao
 import com.mx3.footballhub.data.database.model.CompetitionEntity
+import com.mx3.footballhub.data.database.model.CompetitionTeamEntity
 
-@Database(entities = [CompetitionEntity::class], version = 1, exportSchema = false)
+@Database(
+    entities = [CompetitionEntity::class, CompetitionTeamEntity::class],
+    version = 1,
+    exportSchema = false
+)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract val competitionDao: CompetitionDao
+    abstract val competitionTeamDao: CompetitionTeamDao
 }
 
 private lateinit var INSTANCE: AppDatabase
