@@ -21,25 +21,25 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include layout="@layout/item_team_shimmer_placeholder" />
+            <include layout="@layout/item_season_shimmer_placeholder" />
 
-            <include layout="@layout/item_team_shimmer_placeholder" />
+            <include layout="@layout/item_season_shimmer_placeholder" />
 
-            <include layout="@layout/item_team_shimmer_placeholder" />
+            <include layout="@layout/item_season_shimmer_placeholder" />
 
-            <include layout="@layout/item_team_shimmer_placeholder" />
+            <include layout="@layout/item_season_shimmer_placeholder" />
 
-            <include layout="@layout/item_team_shimmer_placeholder" />
+            <include layout="@layout/item_season_shimmer_placeholder" />
 
-            <include layout="@layout/item_team_shimmer_placeholder" />
+            <include layout="@layout/item_season_shimmer_placeholder" />
 
-            <include layout="@layout/item_team_shimmer_placeholder" />
+            <include layout="@layout/item_season_shimmer_placeholder" />
 
-            <include layout="@layout/item_team_shimmer_placeholder" />
+            <include layout="@layout/item_season_shimmer_placeholder" />
 
-            <include layout="@layout/item_team_shimmer_placeholder" />
+            <include layout="@layout/item_season_shimmer_placeholder" />
 
-            <include layout="@layout/item_team_shimmer_placeholder" />
+            <include layout="@layout/item_season_shimmer_placeholder" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

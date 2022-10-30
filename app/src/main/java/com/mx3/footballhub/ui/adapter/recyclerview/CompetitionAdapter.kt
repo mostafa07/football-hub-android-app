@@ -9,18 +9,13 @@ import com.mx3.footballhub.ui.adapter.recyclerview.base.BaseRecyclerViewAdapter
 class CompetitionAdapter(onItemClickListener: OnItemClickListener<Competition>) :
     BaseRecyclerViewAdapter<Competition, ItemCompetitionBinding>(onItemClickListener) {
 
-    override fun getItemLayoutId(): Int {
-        return R.layout.item_competition
-    }
+    override fun getItemLayoutId(): Int = R.layout.item_competition
 
-    override fun getViewBindingVariableId(): Int {
-        return BR.competition
-    }
+    override fun getViewBindingVariableId(): Int = BR.competition
 
     override fun onViewHolderBinding(
         viewDataBinding: ItemCompetitionBinding,
         item: Competition?,
         position: Int
-    ) {
-    }
+    ) = Unit
 }

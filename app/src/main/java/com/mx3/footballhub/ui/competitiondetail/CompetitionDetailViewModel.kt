@@ -8,7 +8,9 @@ import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.AP
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.mx3.footballhub.FootballHubApplication
+import com.mx3.footballhub.data.model.Season
 import com.mx3.footballhub.data.model.Team
+import com.mx3.footballhub.data.repository.CompetitionSeasonRepository
 import com.mx3.footballhub.data.repository.CompetitionTeamRepository
 import com.mx3.footballhub.ui.base.BaseViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -18,7 +20,8 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 
 class CompetitionDetailViewModel(
-    private val competitionTeamRepository: CompetitionTeamRepository
+    private val competitionTeamRepository: CompetitionTeamRepository,
+    private val competitionSeasonRepository: CompetitionSeasonRepository
 ) : BaseViewModel() {
 
     private val viewModelJob = SupervisorJob()
@@ -33,6 +36,14 @@ class CompetitionDetailViewModel(
     }
     val competitionTeams: LiveData<List<Team>>
         get() = _competitionTeams
+
+    private val _competitionSeasons by lazy {
+        Transformations.map(competitionSeasonRepository.competitionSeasons) { seasons ->
+            seasons.filter { it.competitionId == _selectedCompetitionId.value }
+        }
+    }
+    val competitionSeasons: LiveData<List<Season>>
+        get() = _competitionSeasons
 
 
     override fun onCleared() {
@@ -59,14 +70,29 @@ class CompetitionDetailViewModel(
         }
     }
 
+    fun getCompetitionSeasons() {
+        viewModelScope.launch {
+            showLoading()
+            try {
+                _selectedCompetitionId.value?.let {
+                    competitionSeasonRepository.getCompetitionSeasonsByCompetitionId(it)
+                }
+            } catch (exception: Exception) {
+                Timber.e(exception)
+            }
+            hideLoading()
+        }
+    }
+
 
     companion object {
 
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
-                val competitionTeamRepository: CompetitionTeamRepository =
-                    (this[APPLICATION_KEY] as FootballHubApplication).competitionTeamRepository
-                CompetitionDetailViewModel(competitionTeamRepository = competitionTeamRepository)
+                CompetitionDetailViewModel(
+                    competitionTeamRepository = (this[APPLICATION_KEY] as FootballHubApplication).competitionTeamRepository,
+                    competitionSeasonRepository = (this[APPLICATION_KEY] as FootballHubApplication).competitionSeasonRepository
+                )
             }
         }
     }

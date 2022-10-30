@@ -47,9 +47,9 @@
             android:layout_marginTop="8dp"
             android:background="@android:color/darker_gray"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/competition_emblem_image_view"
-            app:layout_constraintTop_toBottomOf="@id/competition_name_and_code_text_view" />
+            app:layout_constraintTop_toBottomOf="@id/competition_name_and_code_text_view"
+            app:layout_constraintWidth_percent="0.5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

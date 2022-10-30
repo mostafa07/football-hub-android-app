@@ -39,7 +39,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shown="@{!viewModel.isContentLoading()}"
-            tools:listitem="@layout/item_competition_team" />
+            tools:listitem="@layout/item_team" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

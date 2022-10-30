@@ -47,7 +47,7 @@
                 android:ellipsize="end"
                 android:singleLine="true"
                 android:text="@{competition.name + ` ` + competition.code}"
-                app:layout_constraintBottom_toTopOf="@id/competition_current_season_start_date_text_view"
+                app:layout_constraintBottom_toTopOf="@id/competition_current_season_start_date_and_end_date_text_view"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/competition_emblem_image_view"
                 app:layout_constraintTop_toTopOf="parent"
@@ -55,7 +55,7 @@
                 tools:text="Competition Name + Code" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/competition_current_season_start_date_text_view"
+                android:id="@+id/competition_current_season_start_date_and_end_date_text_view"
                 style="@style/TextAppearance.MaterialComponents.Body2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
