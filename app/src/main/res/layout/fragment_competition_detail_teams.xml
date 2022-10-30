@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="com.mx3.footballhub.ui.base.BaseViewModel" />
+            type="com.mx3.footballhub.ui.competitiondetail.CompetitionDetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,8 +23,8 @@
 
         <include
             android:id="@+id/empty_view"
-            layout="@layout/empty_view_layout"
-            app:viewModel="@{viewModel}" />
+            layout="@layout/generic_empty_view_layout"
+            app:isEmptyViewShown="@{!viewModel.isContentLoading &amp;&amp; viewModel.competitionTeams.empty}" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/team_recycler_view"

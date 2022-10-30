@@ -5,15 +5,15 @@
     <data>
 
         <variable
-            name="viewModel"
-            type="com.mx3.footballhub.ui.base.BaseViewModel" />
+            name="isEmptyViewShown"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"
-        app:shown="@{!viewModel.isContentLoading}">
+        app:shown="@{isEmptyViewShown}">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/empty_view_image_view"

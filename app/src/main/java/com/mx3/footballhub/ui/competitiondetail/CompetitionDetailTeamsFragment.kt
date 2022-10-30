@@ -46,7 +46,7 @@ class CompetitionDetailTeamsFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
-        competitionDetailViewModel.getCompetitionTeams()
+        competitionDetailViewModel.fetchCompetitionTeams()
     }
 
 

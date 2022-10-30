@@ -56,7 +56,7 @@ class CompetitionDetailViewModel(
         _selectedCompetitionId.value = competitionId
     }
 
-    fun getCompetitionTeams() {
+    fun fetchCompetitionTeams() {
         viewModelScope.launch {
             showLoading()
             try {
@@ -70,7 +70,7 @@ class CompetitionDetailViewModel(
         }
     }
 
-    fun getCompetitionSeasons() {
+    fun fetchCompetitionSeasons() {
         viewModelScope.launch {
             showLoading()
             try {
