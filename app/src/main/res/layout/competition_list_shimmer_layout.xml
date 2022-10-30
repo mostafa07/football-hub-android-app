@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="viewModel"
-            type="com.mx3.footballhub.ui.base.BaseViewModel" />
+            name="isShimmerShown"
+            type="Boolean" />
     </data>
 
     <com.facebook.shimmer.ShimmerFrameLayout
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        app:shown="@{viewModel.isContentLoading}">
+        app:shown="@{isShimmerShown}">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"

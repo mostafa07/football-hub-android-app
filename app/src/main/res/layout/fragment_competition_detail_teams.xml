@@ -19,7 +19,7 @@
         <include
             android:id="@+id/shimmer_layout"
             layout="@layout/competition_detail_teams_shimmer_layout"
-            app:viewModel="@{viewModel}" />
+            app:isShimmerShown="@{viewModel.isContentLoading()}" />
 
         <include
             android:id="@+id/empty_view"
