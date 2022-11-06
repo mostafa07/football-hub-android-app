@@ -4,67 +4,48 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
+import coil.ImageLoader
+import coil.decode.SvgDecoder
+import coil.load
 import com.mx3.footballhub.R
 import java.io.File
 
 @BindingAdapter("imageResource")
 fun setImage(imageView: ImageView, imageUri: Uri?) {
-    Glide.with(imageView.rootView.context)
-        .setDefaultRequestOptions(
-            RequestOptions()
-                .placeholder(R.drawable.ic_image)
-                .error(R.drawable.football)
-        )
-        .load(imageUri)
-        .into(imageView)
+    loadImage(imageView, imageUri)
 }
 
 @BindingAdapter("imageResource")
 fun setImage(imageView: ImageView, imageUrl: String?) {
-    Glide.with(imageView.rootView.context)
-        .setDefaultRequestOptions(
-            RequestOptions()
-                .placeholder(R.drawable.ic_image)
-                .error(R.drawable.football)
-        )
-        .load(imageUrl)
-        .into(imageView)
+    loadImage(imageView, imageUrl)
 }
 
 @BindingAdapter("imageResource")
 fun setImage(imageView: ImageView, imageFile: File?) {
-    Glide.with(imageView.rootView.context)
-        .setDefaultRequestOptions(
-            RequestOptions()
-                .placeholder(R.drawable.ic_image)
-                .error(R.drawable.football)
-        )
-        .load(imageFile)
-        .into(imageView)
+    loadImage(imageView, imageFile)
 }
 
 @BindingAdapter("imageResource")
 fun setImage(imageView: ImageView, imageResourceId: Int) {
-    Glide.with(imageView.rootView.context)
-        .setDefaultRequestOptions(
-            RequestOptions()
-                .placeholder(R.drawable.ic_image)
-                .error(R.drawable.football)
-        )
-        .load(imageResourceId)
-        .into(imageView)
+    loadImage(imageView, imageResourceId)
 }
 
 @BindingAdapter("imageResource")
 fun setImage(imageView: ImageView, imageDrawable: Drawable?) {
-    Glide.with(imageView.rootView.context)
-        .setDefaultRequestOptions(
-            RequestOptions()
-                .placeholder(R.drawable.ic_image)
-                .error(R.drawable.football)
-        )
-        .load(imageDrawable)
-        .into(imageView)
+    loadImage(imageView, imageDrawable)
+}
+
+
+private fun loadImage(imageView: ImageView, data: Any?) {
+    val imageLoader = ImageLoader.Builder(imageView.context)
+        .components {
+            add(SvgDecoder.Factory())
+        }
+        .build()
+
+    imageView.load(data = data, imageLoader = imageLoader) {
+        placeholder(R.drawable.ic_image)
+        error(R.drawable.football)
+        crossfade(500)
+    }
 }
