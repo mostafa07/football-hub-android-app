@@ -53,7 +53,7 @@ data class Winner(
 class Filters
 
 
-fun AllCompetitionsNetworkApiResponse.toDomainModel(): List<com.mx3.footballhub.data.model.Competition> {
+fun AllCompetitionsNetworkApiResponse.toUiModel(): List<com.mx3.footballhub.data.model.Competition> {
     return competitions.map {
         com.mx3.footballhub.data.model.Competition(
             id = it.id,

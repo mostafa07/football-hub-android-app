@@ -15,7 +15,7 @@ data class CompetitionSeasonEntity(
 )
 
 
-fun List<CompetitionSeasonEntity>.toDomainModel(): List<Season> {
+fun List<CompetitionSeasonEntity>.toUiModel(): List<Season> {
     return map {
         Season(
             id = it.id,

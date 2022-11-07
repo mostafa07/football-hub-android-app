@@ -82,7 +82,7 @@ data class Filters(
 )
 
 
-fun CompetitionTeamNetworkApiResponse.toDomainModel(): List<com.mx3.footballhub.data.model.Team> {
+fun CompetitionTeamNetworkApiResponse.toUiModel(): List<com.mx3.footballhub.data.model.Team> {
     return teams.map {
         com.mx3.footballhub.data.model.Team(
             id = it.id,

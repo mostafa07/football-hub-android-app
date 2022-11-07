@@ -16,7 +16,7 @@ data class CompetitionEntity(
 )
 
 
-fun List<CompetitionEntity>.toDomainModel(): List<Competition> {
+fun List<CompetitionEntity>.toUiModel(): List<Competition> {
     return map {
         Competition(
             id = it.id,

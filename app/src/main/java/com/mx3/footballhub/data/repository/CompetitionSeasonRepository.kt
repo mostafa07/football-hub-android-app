@@ -3,7 +3,7 @@ package com.mx3.footballhub.data.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.mx3.footballhub.data.database.dao.CompetitionSeasonDao
-import com.mx3.footballhub.data.database.model.toDomainModel
+import com.mx3.footballhub.data.database.model.toUiModel
 import com.mx3.footballhub.data.model.Season
 import com.mx3.footballhub.network.model.competitiondetail.toSeasonDatabaseModel
 import com.mx3.footballhub.network.webservice.CompetitionDetailWebService
@@ -17,7 +17,7 @@ class CompetitionSeasonRepository(
 
     val competitionSeasons: LiveData<List<Season>> by lazy {
         Transformations.map(competitionSeasonDao.getAllCompetitionSeasons()) {
-            it.toDomainModel()
+            it.toUiModel()
         }
     }
 

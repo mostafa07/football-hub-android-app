@@ -54,7 +54,7 @@ data class Winner(
 )
 
 
-fun CompetitionDetailNetworkApiResponse.toSeasonDomainModel(): List<com.mx3.footballhub.data.model.Season> {
+fun CompetitionDetailNetworkApiResponse.toSeasonUiModel(): List<com.mx3.footballhub.data.model.Season> {
     return seasons.map {
         com.mx3.footballhub.data.model.Season(
             id = it.id,
