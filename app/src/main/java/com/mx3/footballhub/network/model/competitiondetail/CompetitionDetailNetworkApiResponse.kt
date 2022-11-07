@@ -1,6 +1,6 @@
 package com.mx3.footballhub.network.model.competitiondetail
 
-import com.mx3.footballhub.data.database.model.CompetitionSeasonEntity
+import com.mx3.footballhub.ui.model.CompetitionSeasonEntity
 
 data class CompetitionDetailNetworkApiResponse(
     val id: Int,

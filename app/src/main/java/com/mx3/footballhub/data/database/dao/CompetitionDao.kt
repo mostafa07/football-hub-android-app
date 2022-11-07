@@ -5,7 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.mx3.footballhub.data.database.model.CompetitionEntity
+import com.mx3.footballhub.ui.model.CompetitionEntity
 
 @Dao
 interface CompetitionDao {

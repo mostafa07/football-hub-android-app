@@ -7,9 +7,9 @@ import com.google.gson.reflect.TypeToken
 import com.mx3.footballhub.data.database.dao.CompetitionDao
 import com.mx3.footballhub.data.database.dao.CompetitionSeasonDao
 import com.mx3.footballhub.data.database.dao.CompetitionTeamDao
-import com.mx3.footballhub.data.database.model.CompetitionEntity
-import com.mx3.footballhub.data.database.model.CompetitionSeasonEntity
-import com.mx3.footballhub.data.database.model.CompetitionTeamEntity
+import com.mx3.footballhub.ui.model.CompetitionEntity
+import com.mx3.footballhub.ui.model.CompetitionSeasonEntity
+import com.mx3.footballhub.ui.model.CompetitionTeamEntity
 
 @Database(
     entities = [CompetitionEntity::class, CompetitionTeamEntity::class, CompetitionSeasonEntity::class],

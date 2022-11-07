@@ -3,7 +3,7 @@ package com.mx3.footballhub.data.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.mx3.footballhub.data.database.dao.CompetitionTeamDao
-import com.mx3.footballhub.data.database.model.toUiModel
+import com.mx3.footballhub.ui.model.toUiModel
 import com.mx3.footballhub.data.model.Team
 import com.mx3.footballhub.network.model.team.toDatabaseModel
 import com.mx3.footballhub.network.webservice.CompetitionTeamWebService

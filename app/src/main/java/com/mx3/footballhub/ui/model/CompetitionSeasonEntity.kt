@@ -1,4 +1,4 @@
-package com.mx3.footballhub.data.database.model
+package com.mx3.footballhub.ui.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
